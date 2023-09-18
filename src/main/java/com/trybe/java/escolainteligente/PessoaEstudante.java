@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PessoaEstudante {
 
   /**
-   * Método calcularIdadeEmDias.
+   * Método calcularIdadeEmDias.!
    */
   public static int calcularIdadeEmDias(int anos, int meses, int dias) {
     System.out.println("TODO: Implementar a função calcular Idade em Dias.");

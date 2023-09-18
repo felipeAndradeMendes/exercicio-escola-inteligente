@@ -10,13 +10,73 @@ public class Portaria {
    * Método emitirRelatorio.
    */
   public static void emitirRelatorio(int qtdFundamental1, int qtdFundamental2, int qtdMedio) {
-    System.out.println("TODO: Implementar a função para gerar o relatório de acesso.");
+    int total = qtdFundamental1 + qtdFundamental2 + qtdMedio;
+    double percentFund1 = 100.0 * qtdFundamental1 / total;
+    double percentFund2 = 100.0 * qtdFundamental2 / total;
+    double percentMedio = 100.0 * qtdMedio / total;
+
+    System.out.println("----- Quantidade -----");
+    System.out.println("Ensino Fundamental I: " + qtdFundamental1);
+    System.out.println("Ensino Fundamental II: " + qtdFundamental2);
+    System.out.println("Ensino Médio: " + qtdMedio);
+    System.out.println();
+    System.out.println("----- Percentual -----");
+    System.out.println("Ensino Fundamental I: " + percentFund1 + "%");
+    System.out.println("Ensino Fundamental II: " + percentFund2 + "%");
+    System.out.println("Ensino Médio: " + percentMedio + "%");
+    System.out.println();
+    System.out.println("TOTAL: " + total);
+
   }
 
   /**
    * Método coletarInformacoes.
    */
   public static void coletarInformacoes() {
-    System.out.println("TODO: Solicitar informações para controle de acesso ");
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Entre com o número correspondente à opção desejada:");
+    System.out.println("1 - Registrar o acesso de pessoa estudante");
+    System.out.println("2 - Finalizar o acesso e emitir o relatório");
+
+    ArrayList<Short> idadesEstudantes = new ArrayList<Short>();
+    short fundamental1 = 0;
+    short fundamental2 = 0;
+    short ensinoMedio = 0;
+
+    short menuOpt = scanner.nextShort();
+
+
+    while (menuOpt != 2) {
+      if (menuOpt != 1) {
+        System.out.println("Entre com uma opção válida!");
+        System.out.println("Entre com o número correspondente à opção desejada:");
+        System.out.println("1 - Registrar o acesso de pessoa estudante");
+        System.out.println("2 - Finalizar o acesso e emitir o relatório");
+        menuOpt = scanner.nextShort();
+      } else {
+        System.out.println("Informe a idade da pessoa estudante:");
+        short idade = scanner.nextShort();
+        idadesEstudantes.add(idade);
+
+        if (idade <= 10) {
+          fundamental1++;
+          System.out.println("Pessoa estudante do Ensino Fundamental I, catraca liberada!");
+        } else if (idade >= 15) {
+          ensinoMedio += 1;
+          System.out.println("Pessoa estudante do Ensino Médio, catraca liberada!");
+        } else {
+          fundamental2++;
+          System.out.println("Pessoa estudante do Ensino Fundamental II, catraca liberada!");
+        }
+        System.out.println("Entre com o número correspondente à opção desejada:");
+        System.out.println("1 - Registrar o acesso de pessoa estudante");
+        System.out.println("2 - Finalizar o acesso e emitir o relatório");
+        menuOpt = scanner.nextShort();
+      }
+    }
+
+    emitirRelatorio(fundamental1, fundamental2, ensinoMedio);
+
+//    System.out.println("Nota1= " + fundamental1 + "Nota2 = " + fundamental2 + "Nota3 = " + ensinoMedio);
   }
 }

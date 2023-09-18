@@ -77,6 +77,5 @@ public class Portaria {
 
     emitirRelatorio(fundamental1, fundamental2, ensinoMedio);
 
-//    System.out.println("Nota1= " + fundamental1 + "Nota2 = " + fundamental2 + "Nota3 = " + ensinoMedio);
   }
 }

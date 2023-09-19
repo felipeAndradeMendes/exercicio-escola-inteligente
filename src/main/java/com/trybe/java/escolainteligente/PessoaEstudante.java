@@ -31,6 +31,6 @@ public class PessoaEstudante {
     int dias = Integer.parseInt(scanner.next());
 
     int idadeEmDias = calcularIdadeEmDias(anos, meses, dias);
-    System.out.println("A idade de " + nome + " é " + idadeEmDias + ".");
+    System.out.println("A idade de " + nome + " em dias é " + idadeEmDias + ".");
   }
 }
